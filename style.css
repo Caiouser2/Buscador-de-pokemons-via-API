@@ -163,13 +163,17 @@ input[type="search"]{
     transform:translate(0,40px);
 }
 
-.rodape > h1, h2, a{
+.rodape > h1, h2, h3, a{
     font-family: "Ubuntu";
     padding-top:10px;
     font-weight: 300;
     color: black;
     text-align: center;
     font-size:28px;
+}
+
+.rodape > h3{
+    font-size:23px;
 }
 
 a:hover{
