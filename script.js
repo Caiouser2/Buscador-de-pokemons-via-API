@@ -51,7 +51,7 @@ function submitRequest() {
     })
     .catch(() => {
         if (resetValue === "") {
-            alert('Capo vazio invalido, digite o nome de um pokemon no campo!');
+            alert('Campo vazio inválido, digite o nome de um pokemon no campo!');
         } else {
             alert('Verifique se você digitou o nome do pokemon corretamente!');
         } 
