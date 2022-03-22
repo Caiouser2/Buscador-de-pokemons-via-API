@@ -62,7 +62,11 @@ input[type="search"]{
 .line-pokebol{
     position: absolute;
     width: 100%;
+<<<<<<< HEAD
     height:37px;
+=======
+    height:40px;
+>>>>>>> e57deeab1afac5c4a3f19fe3ca1e76c5dfb0c350
     bottom:48vh;
     background-color: rgb(0, 0, 0);
     
