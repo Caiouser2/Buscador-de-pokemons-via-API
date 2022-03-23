@@ -151,7 +151,7 @@ html,body{
     margin-left: 8px;
 }
 
-.rodape{
+.credits{
     background-color: rgb(235, 235, 235);
     width: 100%;
     position:absolute;
@@ -159,7 +159,7 @@ html,body{
     transform:translateY(700px);
 }
 
-.rodape > h1, h2, h3, a{
+.credits > h1, h2, h3, a{
     font-family: "Ubuntu";
     padding-top:10px;
     font-weight: 300;
@@ -168,12 +168,56 @@ html,body{
     font-size:28px;
 }
 
-.rodape > h3{
+.credits > h3{
     font-size:23px;
 }
 
 a:hover{
     color:rgb(80, 80, 251);
+}
+
+@media (min-height:1300px){
+
+    input[type="search"]{
+        height:82px;
+        font-size:50px;       
+    }
+    
+    .btn{
+        font-size:32px;       
+        height:82px; 
+    }
+    
+    .information-pokemon{
+        width:600px;
+        height:660px;
+    }
+    
+    #alternative-image > img{
+        width:542px;
+        height: 438px;
+    }
+    
+    .information-pokemon > h1,.description{
+        width:97.3%;
+        font-size: 31px;
+    }
+
+    .description > h2{
+        font-size: 24px;
+    }
+
+    .description{
+        height:72px;
+    }
+
+    .credits > h1,h2{
+        font-size:50px;
+    }
+
+    .credits > h3,a{
+        font-size:43px;
+    }
 }
 
 
@@ -292,7 +336,7 @@ a:hover{
         height:72px;
     }
 
-    .rodape > h1, h2, a{
+    .credits > h1, h2, a{
         font-size:23px;
     }
 }
