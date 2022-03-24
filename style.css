@@ -177,7 +177,7 @@ a:hover{
 }
 
 @media (min-height:1300px){
-
+    
     input[type="search"]{
         height:82px;
         font-size:50px;       
@@ -263,7 +263,7 @@ a:hover{
     }
     
     .btn{
-        top:130px;
+        top:200px;
         left: 23%;
         width:200px;
         font-size:27px;       
