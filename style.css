@@ -19,6 +19,8 @@ html,body{
 }
 
 #red{
+    display:flex;
+    align-items: flex-end;
     height:50vh;
     width:100%;
     background-color:red;
@@ -54,7 +56,7 @@ html,body{
     border-radius: 10px;
     border: 2px solid black;
     background-color:var(--color-buttom);
-    font-size: 20px;
+    font-size: 18px;
     z-index: 1;
 }
 
@@ -152,10 +154,10 @@ html,body{
 }
 
 .credits{
-    background-color: rgb(235, 235, 235);
     width: 100%;
     position:absolute;
     bottom:0px;
+    background-color: rgb(235, 235, 235);
     transform:translateY(700px);
 }
 
@@ -227,11 +229,6 @@ a:hover{
         height:80vh;
     }
 
-    .line-pokebol{
-        position: absolute;
-        bottom:18vh;
-    }
-
     .container{
         margin-top:-35vh;
     }
@@ -246,25 +243,20 @@ a:hover{
     .container{
         margin-top: -51vh;
     }
-
-    .line-pokebol{
-        position: absolute;
-        bottom:-19vh;
-    }
 }
 
 @media (max-width:430px){
 
     input[type="search"]{
         height:70px;
-        left:23%;
-        width: 200px; 
+        left:25%;
+        width:200px; 
         font-size:22px;       
     }
     
     .btn{
-        top:200px;
-        left: 23%;
+        top:170px;
+        left:25%;
         width:200px;
         font-size:27px;       
         height:70px; 
