@@ -27,16 +27,23 @@ html,body{
     z-index: 0;
 }
 
-.search{
-    left:16%;
-    height:52px;
-    width:62%;
-    top: 5.5vh;
-    padding-left: 21px;
+.align-center-form{
+    width:97%;
+    display:flex;
+    justify-content: flex-end;
+    position: absolute;
+    top:5vh;
+    background-color: red;
 }
 
 .search{
-    position: absolute;
+    height:52px;
+    width:67%;
+    padding-left: 30px;
+    margin-right: 4px;
+}
+
+.search{
     border-radius: 10px;
     border:2px solid black;
     font-size: 27px;
@@ -45,11 +52,8 @@ html,body{
 }
 
 .btn{
-    position:absolute;
     width:17.9%;
     height:52px;
-    right: 3.5%;
-    top: 5.5vh;
 }
 
 .btn{
@@ -57,6 +61,7 @@ html,body{
     border: 2px solid black;
     background-color:var(--color-buttom);
     font-size: 18px;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -98,7 +103,7 @@ html,body{
     animation: viewcard 3s linear;
 }
 
-@keyframes viewcard {
+@keyframes viewcard{
     0%{
         transform:rotatey(0deg);
     }50%{
@@ -117,7 +122,7 @@ html,body{
     background-color:var(--color-name-and-type-card-pokemon); /*cor de background pokemon*/
 }
 
-.information-pokemon > h1 {
+.information-pokemon > h1{
     height: 10%;
     width: 95.5%;
     margin:4px 0 7px 6px ;
@@ -150,7 +155,6 @@ html,body{
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 25px;
-    margin-left: 8px;
 }
 
 .credits{
@@ -168,6 +172,7 @@ html,body{
     color: black;
     text-align: center;
     font-size:28px;
+    padding:5px 13px;
 }
 
 .credits > h3{
@@ -180,7 +185,7 @@ a:hover{
 
 @media (min-height:1300px){
     
-    input[type="search"]{
+    .search{
         height:82px;
         font-size:50px;       
     }
@@ -241,23 +246,29 @@ a:hover{
     }
 
     .container{
-        margin-top: -51vh;
+        margin-top:-51vh;
     }
 }
 
-@media (max-width:430px){
+@media (max-width:485px){
 
-    input[type="search"]{
+    .align-center-form {
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search{
         height:70px;
-        left:25%;
-        width:200px; 
-        font-size:22px;       
+        width:280px; 
+        font-size:22px;  
+        margin-bottom: 20px; 
+        margin-right:0;
     }
     
     .btn{
-        top:170px;
-        left:25%;
-        width:200px;
+        width:280px;
         font-size:27px;       
         height:70px; 
     }
@@ -282,6 +293,7 @@ a:hover{
     }
 
     .description > h2{
+        padding-left:3px;
         font-size: 24px;
     }
 
@@ -293,15 +305,13 @@ a:hover{
 @media (max-width:391px){
 
 
-    input[type="search"]{
-        left:34%;
-        width:115px; 
+    .search{
+        width:200px; 
         font-size:17px;       
     }
     
     .btn{
-        left: 34%;
-        width:115px;
+        width:200px;
         font-size:20px;       
     }
     
@@ -330,17 +340,5 @@ a:hover{
 
     .credits > h1, h2, a{
         font-size:23px;
-    }
-}
-
-
-@media (max-width:391px){
-
-    input[type="search"]{
-        left:28%;
-    }
-    
-    .btn{
-        left:28%;
     }
 }
