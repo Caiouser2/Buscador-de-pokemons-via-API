@@ -85,11 +85,68 @@ html,body{
     border-radius:250px;
 }
 
+.error-customs{
+    width:97%;
+    display: flex;
+    justify-content: center;  
+    margin-top: -33vh;
+    height:60px;
+}
+
+.error-input-empty{
+    width: 60%;
+    margin-left: -25px;
+}
+
+.error-input-empty > h1{
+    font-family: 'Montserrat';
+    border: 2px solid var(--color-card-pokemon);
+    border-radius: 5px;
+    font-size:20px;
+    background-color:rgb(126, 169, 240); 
+}
+
+.error-input-empty > h1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    text-align: center;
+    align-items:center;
+    height:60px;
+    padding: 8px 8px;
+}
+
+.error-input-value-nonexistent{
+    width: 60%;
+    margin-left: -25px;
+}
+
+.error-input-value-nonexistent > h1{
+    font-family: 'Montserrat';
+    border: 2px solid var(--color-card-pokemon);
+    border-radius: 5px;
+    font-size:20px;
+    background-color:rgb(126, 169, 240); 
+}
+
+.error-input-value-nonexistent > h1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    text-align: center;
+    align-items:center;
+    height:60px;
+    padding: 8px 8px;
+}
+
+.none{
+    display:none !important;
+}
+
 .container{
     width:97%;
     display: flex;
     justify-content: center;  
-    margin-top: -26.5vh;
 }
 
 .information-pokemon{
@@ -183,8 +240,14 @@ a:hover{
     color:rgb(80, 80, 251);
 }
 
+@media (max-width:485px) and (max-height:610px){
+    .error-customs{
+        width:97%;
+        transform:translateY(110px); 
+    }
+}
+
 @media (min-height:1300px){
-    
     .search{
         height:82px;
         font-size:50px;       
@@ -227,31 +290,45 @@ a:hover{
     }
 }
 
+@media (max-height:570px) and (max-width:485px){
+    #red{
+        height:80vh;
+    }
 
-@media (max-height:570px){
+    .error-customs{
+        transform:translateY(-40px) !important; 
+    }
 
+    .container{
+        margin-top:-20vh;
+    }
+}
+
+@media (max-height:560px) and (max-width:485px){
     #red{
         height:80vh;
     }
 
     .container{
-        margin-top:-35vh;
+        margin-top:-20vh;
     }
 }
 
-@media (max-height:470px){
-
-    #red{
-        height:115vh;
+@media (max-height:480px){
+    .error-customs{
+        width:97%;
+        display: flex;
+        justify-content: center;  
+        height:60px;
+        transform:translateY(-5px) !important;
     }
 
     .container{
-        margin-top:-51vh;
+        margin-top:-45vh;
     }
 }
 
 @media (max-width:485px){
-
     .align-center-form {
         width: 100%;
         display:flex;
@@ -273,7 +350,25 @@ a:hover{
         font-size:27px;       
         height:70px; 
     }
+    
+    .error-input-empty{
+        width:280px;
+        margin-left: 10px;
+    }
+    
+    .error-input-empty > h1{
+        height:130px;
+    }
 
+    .error-input-value-nonexistent{
+        width: 280px;
+        margin-left: 10px;
+    }
+    
+    .error-input-value-nonexistent > h1{
+        height:130px;
+    }
+    
     .container{
         transform:translateY(80px);
     }
@@ -304,8 +399,6 @@ a:hover{
 }
 
 @media (max-width:391px){
-
-
     .search{
         width:200px; 
         font-size:17px;       
@@ -314,6 +407,22 @@ a:hover{
     .btn{
         width:200px;
         font-size:20px;       
+    }
+
+    .error-customs{
+        width:97%;
+        display: flex;
+        justify-content: center;  
+        height:60px;
+    }
+    
+    .error-input-empty{
+        width:200px;
+    }
+
+    .error-input-value-nonexistent{
+        width: 200px;
+        margin-left: 3px;
     }
     
     .information-pokemon{
