@@ -4,10 +4,11 @@ const  btn = document.querySelector('.btn');
 btn.addEventListener('click', submitRequest);
 
 function submitRequest() {
-    const container = document.querySelector('.container'); //div father of card pokemon 
-    const resetValue = textarea.value.toLowerCase(); //value of textarea reset to to lower case
+    let container = document.querySelector('.container'); //div father of card pokemon 
+    container.classList.remove('none');//remove class 'none'of the div father 
 
-    const BASE_URL_POKEMONS =`https://pokeapi.co/api/v2/pokemon/${resetValue}`;
+    const resetValue = textarea.value.toLowerCase(); //value of textarea reset to to lower case
+    BASE_URL_POKEMONS =`https://pokeapi.co/api/v2/pokemon/${resetValue}`;
 
     fetch(BASE_URL_POKEMONS)
     .then(response => response.json())
@@ -50,13 +51,21 @@ function submitRequest() {
         }
     })
     .catch(() => {
-        if (resetValue === "") {
-            alert('Campo vazio inválido, digite o nome de um pokemon no campo!');
+    if (resetValue === "") {
+        messageErrorOne.classList.remove('none');
+        container.classList.add('none');
         } else {
-            alert('Verifique se você digitou o nome do pokemon corretamente!');
-        } 
+        messageErrorTwo.classList.remove('none');
+        container.classList.add('none');
+        }
         //custom errors 
     }) 
+    const messageErrorOne = document.querySelector('.error-customs > .error-input-empty');
+    messageErrorOne.classList.add('none');//hides the error message
+
+    const messageErrorTwo = document.querySelector('.error-customs > .error-input-value-nonexistent');
+    messageErrorTwo.classList.add('none');//hides the error message
+    return;
 }
 
 function mapKeyEnter(event) {
