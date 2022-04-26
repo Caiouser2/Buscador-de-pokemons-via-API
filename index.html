@@ -4,35 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>Buscador de Pokemons</title>
 </head>
 <body>
     <main>
-        <div class="align-center-form">
-            <input type="search" class="search" placeholder="Pesquise um Pokemon"></input>
-            <div class="teste"></div>
+        <!-- container: input,buttom,lis sugestions dynamics -->
+        <section class="container-form">
+            <div class="container-sugestions">
+                <input type="text" class="search" placeholder="Pesquise um Pokemon"></input>
+                <ul class="sugestions none">
+                    <li class="all-li" value="0"></li>
+                    <li class="all-li" value="1"></li>
+                    <li class="all-li" value="2"></li>
+                    <li class="all-li" value="3"></li>
+                    <li class="all-li" value="4"></li>
+                </ul>
+            </div>
             <button class="btn">Search Pokemon</button>
-        </div> 
-    <!--backgrund red-->
-    <div id="red">
-        <div class="line-pokebol">
-            <div class="align-center-items">
+
+            <!-- container: custom error -->
+            <div class="error-custom none">
+                <section class="error-pokemon-null none">
+                    <h1>Não foi possível encontrar o pokemon. Verifique se você digitou corretamente</h1>
+                </section>
+            </div>
+
+            <!--container: background red, line pokebol, circle pokebol-->
+            <div class="pokebol">
                 <div class="circle-pokebol"></div>
             </div>
-        </div>
-    </div>
-    <div class="error-customs">
-        <section class="error-input-empty none">
-            <h1>Campo vazio inválido, digite o nome de algum pokemon</h1>
         </section>
-        <section class="error-input-value-nonexistent none">
-            <h1>Verifique se você digitou o nome do pokemon corretamente</h1>
-        </section>
-    </div>
-    <!--div father of card pokemon-->
-    <div class="container"></div>    
+        
+        <!-- container: card pokemon -->
+        <div class="container">
+    </main>
 
+    <!-- container: content sources -->
     <footer class="credits">
         <h1>Feito por: Caio Oliveria Costa <3. </h1>
         <h2>descrição dos pokemons adquiridas em:<a href="https://pokeapi.co/docs/v2">PokeAPI.</a></h2>
