@@ -1,4 +1,5 @@
 const textarea = document.querySelector('.search');
+// textarea.value.toLowerCase();
 textarea.addEventListener('keyup', shrinkArrayByFiveSpaces);
 
 const containerErrorsCustoms = document.querySelector('.error-custom'); //container custom error 
@@ -10,8 +11,6 @@ textarea.addEventListener('click', () => {
 const btn = document.querySelector('.btn');
 btn.addEventListener('click', submitRequest);
 
-let firstArr = []; //first array, recive all pokemons names for dynamic sugestions sugestions   
-
 const ul = document.querySelector('.sugestions');
 document.addEventListener('click', () => {
     ul.classList.add('none');
@@ -19,10 +18,12 @@ document.addEventListener('click', () => {
 
 const li = document.querySelectorAll('.all-li'); //li of suggestions
 
+let firstArr = []; //first array, recive all pokemons names for dynamic sugestions sugestions   
+
 function shrinkArrayByFiveSpaces() {
     ul.classList.remove('none');
 
-    const filterArr = firstArr.filter(oldArr => oldArr.includes(`${textarea.value}`)); //compares the values of the textarea with those of the suggestions array
+    const filterArr = firstArr.filter(oldArr => oldArr.includes(`${textarea.value.toLowerCase()}`)); //compares the values of the textarea with those of the suggestions array
     let sencondArr = []; //array with five names for dynamics suggestions
 
     function changeUlForFiveSpaces() {
@@ -65,8 +66,6 @@ function requestNamesPokemons() {
 }
 requestNamesPokemons(); //this function takes the name of the pokemons for dynamics sugestions
 
-
-
 //make request of informations pokemons on API
 function submitRequest() {
     containerErrorsCustoms.classList.add('none');
@@ -74,30 +73,28 @@ function submitRequest() {
     let containerCardPokemons = document.querySelector('.container'); //div father of card pokemon 
     containerCardPokemons.classList.remove('none'); //remove class 'none' of the div father 
 
-    const resetValueTextarea = textarea.value.toLowerCase(); //value of textarea reset for to lower case
-
-    BASE_URL_POKEMONS =`https://pokeapi.co/api/v2/pokemon/${resetValueTextarea}`;
+    BASE_URL_POKEMONS =`https://pokeapi.co/api/v2/pokemon/${textarea.value.toLowerCase()}`;
 
     fetch(BASE_URL_POKEMONS)
-    .then(response => response.json())
-    .then(pokemons => {
-        const resetPokemonsNameInCard = pokemons.name[0].toUpperCase() + pokemons.name.substr(1); //change first letter of pokemon name for to upper case
+    .then(res => res.json())
+    .then(dataPokemons => {
+        const resetPokemonsNameInCard = dataPokemons.name[0].toUpperCase() + dataPokemons.name.substr(1); //change first letter of pokemon name for to upper case
 
         const cardPokemons = containerCardPokemons.innerHTML = `
         <div class="information-pokemon">
         <h1>${resetPokemonsNameInCard}</h1>
         <section id="alternative-image">
-        <img src="https://cdn.traction.one/pokedex/pokemon/${pokemons.id}.png">
+        <img src="https://cdn.traction.one/pokedex/pokemon/${dataPokemons.id}.png">
         </section>
         <div class="description">
         <h2>type:</h2>
-        <h2>${pokemons.types[0].type.name}</h2>
+        <h2>${dataPokemons.types[0].type.name}</h2>
         <h2 id="second-type-pokemon"></h2>
         </div>
         </div>`;
 
-        if (pokemons.id >= 888) imgAlternativePokemon(); //above id 800 images are missing from the PokéDex API, so I get sprites from BASE_URL_POKEMONS
-        if (pokemons.types.length == 2) checkPokemonType(); //this function check if there is more than one type in the array, if so add it to the html
+        if (dataPokemons.id >= 888) imgAlternativePokemon(); //above id 800 images are missing from the PokéDex API, so I get sprites from BASE_URL_POKEMONS
+        if (dataPokemons.types.length == 2) checkPokemonType(); //this function check if there is more than one type in the array, if so add it to the html
 
         function imgAlternativePokemon() {
             const divImage = document.querySelector('#alternative-image');
@@ -109,7 +106,7 @@ function submitRequest() {
 
         function checkPokemonType() {
             const description = document.querySelector('#second-type-pokemon');
-            const secondTypepokemon = description.innerHTML = ` ${pokemons.types[1].type.name}`
+            const secondTypepokemon = description.innerHTML = ` ${dataPokemons.types[1].type.name}`
             return;
             //Check if there is more than one type in the array, if so add it to the html
         }
