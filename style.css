@@ -91,7 +91,8 @@ html, body{
 .all-li{
     text-align: center;
     list-style: none;
-    padding: 10px 0;
+    padding: 5px 0;
+    line-height: 2;
     cursor: pointer;
     font-size: 20px;
     border-radius: 3px;
@@ -305,7 +306,7 @@ a:hover{
     } 
     
     .pokebol{
-        margin-top:36px;
+        margin-top:50px;
     }
 
     .error-custom {
