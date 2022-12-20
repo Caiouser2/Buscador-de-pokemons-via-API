@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Buscador de Pokemons</title>
+</head>
+<body>
+    <main>
+        <!-- container: input,buttom,lis sugestions dynamics -->
+        <section class="container-form">
+            <div class="container-sugestions">
+                <input type="text" class="search" placeholder="Pesquise um Pokemon"></input>
+                <ul class="sugestions none">
+                    <li class="all-li" value="0"></li>
+                    <li class="all-li" value="1"></li>
+                    <li class="all-li" value="2"></li>
+                    <li class="all-li" value="3"></li>
+                    <li class="all-li" value="4"></li>
+                </ul>
+            </div>
+            <button class="btn">Search Pokemon</button>
+
+            <!-- container: custom error -->
+            <div class="error-custom none">
+                <section class="error-pokemon-null none">
+                    <h1>Não foi possível encontrar o pokemon. Verifique se você digitou corretamente</h1>
+                </section>
+            </div>
+
+            <!--container: background red, line pokebol, circle pokebol-->
+            <div class="pokebol">
+                <div class="circle-pokebol"></div>
+            </div>
+        </section>
+        
+        <!-- container: card pokemon -->
+        <div class="container">
+    </main>
+
+    <!-- container: content sources -->
+    <footer class="credits">
+        <h1>Feito por: Caio Oliveria Costa <3. </h1>
+        <h2>descrição dos pokemons adquiridas em:<a href="https://pokeapi.co/docs/v2">PokeAPI.</a></h2>
+        <h2>imagens dos pokemons adquiridas em:<a href="https://pokedevs.gitbook.io/pokedex/resources/pokemon">PokéDex API.</a></h2>
+        <h3>Todos os direitos dos contéudos reservados a seus respectivos criadores.</h3>
+    </footer>
+
+   <script src="script.js"></script>
+</body>
+</html>
