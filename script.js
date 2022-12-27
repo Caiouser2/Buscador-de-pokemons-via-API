@@ -36,10 +36,12 @@ function shrinkArrayByFiveSpaces() {
 
             if (textarea.value == '') ul.classList.add('none');
 
-            if (sencondArrFiveSpaces === undefined || sencondArrFiveSpaces === null || sencondArrFiveSpaces === '' || sencondArrFiveSpaces === ' ') {
+            if (typeof sencondArrFiveSpaces !== "string" || sencondArrFiveSpaces === '' || sencondArrFiveSpaces === ' ') {
                 li[n].classList.add('none');
                 //check that the values are as expected
-            } else if (sencondArrFiveSpaces != undefined && sencondArrFiveSpaces != null) {
+            }
+            
+            if (typeof sencondArrFiveSpaces === "string") {
                 li[n].classList.remove('none');
             }
 
@@ -68,13 +70,12 @@ function requestNamesPokemons() {
 }
 requestNamesPokemons(); //this function takes the name of the pokemons for dynamics sugestions
 
-
 /************************* make request about informations pokemons on API ************************************/
+const elementSonOfContainerCardPokemons = document.querySelector('.information-pokemon');
+elementSonOfContainerCardPokemons.classList.add('none'); //remove class 'none' of the div father 
+
 function submitRequest() {
     containerErrorsCustoms.classList.add('none');
-
-    let containerCardPokemons = document.querySelector('.container'); //div father of card pokemon 
-    containerCardPokemons.classList.remove('none'); //remove class 'none' of the div father 
 
     const resetValueTextarea = textarea.value.toLowerCase(); //value of textarea reset for to lower case
 
@@ -83,21 +84,23 @@ function submitRequest() {
     fetch(BASE_URL_POKEMONS)
     .then(response => response.json())
     .then(pokemons => {
+        const elementSonOfContainerCardPokemons = document.querySelector('.information-pokemon');
+        elementSonOfContainerCardPokemons.classList.remove('none'); //remove class 'none' of the div father 
+    
+
         const resetPokemonsNameInCard = pokemons.name[0].toUpperCase() + pokemons.name.substr(1); //change first letter of pokemon name for to upper case
 
         const cardPokemons = innerHTML = `
-        <div class="information-pokemon">
-            <h1>${resetPokemonsNameInCard}</h1>
-            <section id="alternative-image">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemons.id}.png">
-            </section>
-            <div class="description">
-                <h5>Type: <span>${pokemons.types[0].type.name}</span>, <span>${verifyLengthArrayTypesPokemons()}</span></h5>
-                <h5>abilities: <span>${pokemons.abilities[0].ability.name}</span>, <span>${verifyLengthArrayAbilitiesPokemons()}</span></h5>
-            </div>
+        <h1>${resetPokemonsNameInCard}</h1>
+        <section id="alternative-image">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemons.id}.png">
+        </section>
+        <div class="description">
+            <h5>Type: <span>${pokemons.types[0].type.name}</span>, <span>${verifyLengthArrayTypesPokemons()}</span></h5>
+            <h5>Abilities: <span>${pokemons.abilities[0].ability.name}</span>, <span>${verifyLengthArrayAbilitiesPokemons()}</span></h5>
         </div>`;
 
-        containerCardPokemons.innerHTML = cardPokemons; 
+        elementSonOfContainerCardPokemons.innerHTML = cardPokemons; 
 
         function verifyLengthArrayTypesPokemons() {
             if (pokemons.types.length > 1) {
@@ -119,6 +122,7 @@ function submitRequest() {
         const elementMessageErrorOne = document.querySelector('.error-custom > .error-pokemon-null');
         containerErrorsCustoms.classList.remove('none');
         elementMessageErrorOne.classList.remove('none');
+        elementSonOfContainerCardPokemons.classList.add('none');
     }) 
 }
 
