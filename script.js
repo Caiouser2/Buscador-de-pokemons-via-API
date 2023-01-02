@@ -22,6 +22,7 @@ document.addEventListener('click', () => {
 /******************* section verify value of input search *********************************/
 let firstArr = []; //first array, recive all pokemons names for dynamic sugestions sugestions   
 
+
 function shrinkArrayByFiveSpaces() {
     ul.classList.remove('none');
 
@@ -63,8 +64,7 @@ function requestNamesPokemons() {
     .then(res => res.json())
     .then((res) => {
         for (let i = 1; i <= 898; i++) {
-            let reciveNames =  res.results[i].name;
-            firstArr.push(reciveNames); 
+            firstArr.push(res.results[i].name); 
         }        
     })
     .catch();
@@ -97,8 +97,8 @@ function submitRequest() {
             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemons.id}.png">
         </section>
         <div class="description">
-            <h5>Type: <span>${pokemons.types[0].type.name}</span>, <span>${verifyLengthArrayTypesPokemons()}</span></h5>
             <h5>Abilities: <span>${pokemons.abilities[0].ability.name}</span>, <span>${verifyLengthArrayAbilitiesPokemons()}</span></h5>
+            <h5>Type: <span>${pokemons.types[0].type.name}</span>, <span>${verifyLengthArrayTypesPokemons()}</span></h5>
         </div>`;
 
         elementSonOfContainerCardPokemons.innerHTML = cardPokemons; 
