@@ -5,7 +5,7 @@ const containerErrorsCustoms = document.querySelector('.error-custom'); //contai
 
 textarea.addEventListener('click', () => {
     containerErrorsCustoms.classList.add('none');
-}) //always that textarea recive a click, the message of erros it is hide
+}) //always that textarea recive a click, the message of error disappears
 /******************* section get elements dynamics errors *********************************/
 
 /******************* section get elements of form search *********************************/
@@ -36,6 +36,7 @@ function shrinkArrayByFiveSpaces() {
 
             if (textarea.value == '') ul.classList.add('none');
 
+            // add verify and acept number
             if (typeof sencondArrFiveSpaces !== "string" || sencondArrFiveSpaces === '' || sencondArrFiveSpaces === ' ') {
                 li[n].classList.add('none');
                 //check that the values are as expected
